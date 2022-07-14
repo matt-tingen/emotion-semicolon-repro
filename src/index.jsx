@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Container = styled('div')(
+const Flex = styled('div')(
   css({
     gap: 8,
     flexWrap: 'wrap',
@@ -12,10 +12,6 @@ const Container = styled('div')(
 );
 
 const flexStyle = css({ display: 'flex' });
-
-const Stack = ({ component: Component, children }) => {
-  return <Component className={flexStyle}>{children}</Component>;
-};
 
 const items = [
   { name: 'One' },
@@ -37,11 +33,11 @@ const items = [
 
 function App() {
   return (
-    <Stack component={Container}>
+    <Flex className={flexStyle}>
       {items.map(({ name }) => (
         <div key={name}>{name}</div>
       ))}
-    </Stack>
+    </Flex>
   );
 }
 
