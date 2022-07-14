@@ -4,14 +4,13 @@ import styled from '@emotion/styled';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Flex = styled('div')(
-  css({
-    gap: 8,
-    flexWrap: 'wrap',
-  }),
-);
+const flexClass = css({
+  display: 'flex',
+  gap: 8,
+});
+const wrapClass = css({ flexWrap: 'wrap' });
 
-const flexStyle = css({ display: 'flex' });
+const Flex = styled('div')(flexClass);
 
 const items = [
   { name: 'One' },
@@ -33,7 +32,7 @@ const items = [
 
 function App() {
   return (
-    <Flex className={flexStyle}>
+    <Flex className={wrapClass}>
       {items.map(({ name }) => (
         <div key={name}>{name}</div>
       ))}
