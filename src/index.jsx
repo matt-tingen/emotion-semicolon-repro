@@ -2,7 +2,7 @@ import { cache, css } from '@emotion/css';
 import { CacheProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 const flexClass = css({
   display: 'flex',
@@ -41,9 +41,8 @@ function App() {
 }
 
 const rootElement = document.getElementById('root');
-ReactDOM.render(
+createRoot(rootElement).render(
   <CacheProvider value={cache}>
     <App />
   </CacheProvider>,
-  rootElement,
 );
