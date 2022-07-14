@@ -1,4 +1,4 @@
-import { cache, css, cx } from '@emotion/css';
+import { cache, css } from '@emotion/css';
 import { CacheProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
@@ -11,15 +11,10 @@ const Container = styled('div')(
   }),
 );
 
-const Stack = ({ component: Component, direction, children }) => {
-  const flexStyle = css(
-    { display: 'flex' },
-    direction && {
-      flexDirection: direction,
-    },
-  );
+const flexStyle = css({ display: 'flex' });
 
-  return <Component className={cx(flexStyle)}>{children}</Component>;
+const Stack = ({ component: Component, children }) => {
+  return <Component className={flexStyle}>{children}</Component>;
 };
 
 const items = [
